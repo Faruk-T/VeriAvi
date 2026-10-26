@@ -1,4 +1,5 @@
 import streamlit as st
+import streamlit.components.v1 as components
 import pandas as pd
 import sqlite3
 import time
@@ -621,16 +622,27 @@ div[data-testid="stCaptionContainer"] p {{
     font-size: 0.92rem !important;
 }}
 
-/* 3. MODAL (POP-UP DIALOG) ARKA PLANI VE İÇİNDEKİ TÜM BAŞLIK/ETİKETLER (BEYAZ ZEMİNDE BEYAZ YAZI SORUNUNU KESİN ÇÖZER) */
+/* 3. MODAL (POP-UP DIALOG) ARKA PLANI VE İÇİNDEKİ TÜM BAŞLIK/ETİKETLER (HER CİHAZDA KESİN KONTRAST) */
+div.stDialog,
+div[data-testid="stDialog"],
+div[data-testid="stDialog"] > div,
 div[data-testid="stDialog"] > div > div,
+div[data-testid="stDialog"] > div > div > div,
+div[data-testid="stDialog"] [role="dialog"],
 div[role="dialog"],
 div[role="dialog"] > div,
-div[data-baseweb="modal"] div[role="dialog"] {{
+div[data-baseweb="modal"],
+div[data-baseweb="modal"] [role="dialog"],
+div[data-baseweb="modal"] div,
+section[role="dialog"] {{
     background-color: {v["modal_bg"]} !important;
     background: {v["modal_bg"]} !important;
+    color: {v["text_primary"]} !important;
+}}
+div[role="dialog"],
+div[data-testid="stDialog"] [role="dialog"] {{
     border: 2px solid {v["modal_border"]} !important;
     border-radius: 20px !important;
-    color: {v["text_primary"]} !important;
     max-width: 96vw !important;
     box-shadow: 0 25px 60px rgba(0, 0, 0, 0.65) !important;
 }}
@@ -649,7 +661,8 @@ div[data-testid="stDialog"] p {{
     opacity: 1 !important;
 }}
 /* Dialog kapatma (X) butonu */
-div[role="dialog"] button[aria-label="Close"] {{
+div[role="dialog"] button[aria-label="Close"],
+div[data-testid="stDialog"] button[aria-label="Close"] {{
     color: {v["text_primary"]} !important;
     background: rgba(217, 119, 6, 0.18) !important;
     border-radius: 8px !important;
@@ -715,6 +728,14 @@ div[data-baseweb="input"] input {{
     -webkit-text-fill-color: {v["input_text"]} !important;
     font-weight: 700 !important;
     opacity: 1 !important;
+}}
+/* Mobilde selectbox'a dokununca klavyenin açılmasını ve imleç yanıp sönmesini engelle */
+div[data-baseweb="select"] input,
+[data-testid="stSelectbox"] input {{
+    cursor: pointer !important;
+    caret-color: transparent !important;
+    user-select: none !important;
+    -webkit-user-select: none !important;
 }}
 div[data-baseweb="input"] input:disabled {{
     color: {v["accent_amber"]} !important;
@@ -1003,13 +1024,29 @@ div[data-testid="stProgress"] > div > div > div > div {{
     color: {v["text_secondary"]} !important;
 }}
 
-/* Özel kutu etiketleri ve uyarı kutusu (Streamlit iç stillerinden etkilenmez) */
-.custom-field-label {{
-    color: {v["accent_amber"]} !important;
+/* Özel soru başlık kartları (Her ekranda ve her temada %100 net ve kontrastlı) */
+.custom-field-label,
+span.custom-field-label,
+div.custom-field-label,
+div[data-testid="stMarkdownContainer"] .custom-field-label,
+div[data-testid="stMarkdownContainer"] span.custom-field-label,
+div[data-testid="stMarkdownContainer"] div.custom-field-label,
+div[role="dialog"] .custom-field-label,
+div[data-testid="stDialog"] .custom-field-label {{
+    color: {"#f59e0b" if theme_mode == "dark" else "#9a3412"} !important;
+    -webkit-text-fill-color: {"#f59e0b" if theme_mode == "dark" else "#9a3412"} !important;
+    background: {"linear-gradient(135deg, rgba(245, 158, 11, 0.20), rgba(234, 88, 12, 0.14))" if theme_mode == "dark" else "linear-gradient(135deg, #fffbeb, #fef3c7)"} !important;
+    border: 1.5px solid {"#d97706" if theme_mode == "dark" else "#ea580c"} !important;
+    border-radius: 10px !important;
+    padding: 8px 14px !important;
     font-weight: 800 !important;
     font-size: 0.96rem !important;
-    margin-bottom: 0.35rem !important;
-    display: block;
+    display: block !important;
+    margin-bottom: 0.5rem !important;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.12) !important;
+    line-height: 1.4 !important;
+    letter-spacing: 0.2px !important;
+    box-sizing: border-box !important;
 }}
 .custom-warning-banner {{
     background: {v["alert_bg"]} !important;
@@ -1120,6 +1157,30 @@ if "selection_warning" not in st.session_state:
 
 # Tema CSS'ini uygula
 st.markdown(build_theme_css(st.session_state["theme_mode"]), unsafe_allow_html=True)
+
+# Mobilde selectbox seçimlerinde sanal klavyenin açılmasını engelleyen istemci koruma betiği
+components.html(
+    """
+    <script>
+    function preventMobileKeyboards() {
+        try {
+            const doc = window.parent.document;
+            const selects = doc.querySelectorAll('div[data-baseweb="select"] input, input[role="combobox"], [data-testid="stSelectbox"] input');
+            selects.forEach(input => {
+                if (input.getAttribute('inputmode') !== 'none') {
+                    input.setAttribute('inputmode', 'none');
+                    input.setAttribute('readonly', 'true');
+                }
+            });
+        } catch (e) {}
+    }
+    preventMobileKeyboards();
+    setInterval(preventMobileKeyboards, 400);
+    </script>
+    """,
+    height=0,
+    width=0,
+)
 
 # 0. Hero Banner
 st.markdown("""
@@ -1388,21 +1449,23 @@ def render_popup_quiz_body(current_player_name: str):
 
     c_sel1, c_sel2 = st.columns(2)
     with c_sel1:
-        st.markdown('<span class="custom-field-label">1️⃣ Tespit edilen sorun / dönüşüm ihtiyacı</span>', unsafe_allow_html=True)
+        st.markdown('<div class="custom-field-label">1️⃣ Tespit edilen sorun / dönüşüm ihtiyacı</div>', unsafe_allow_html=True)
         chosen_problem = st.selectbox(
             "1️⃣ Tespit edilen sorun / dönüşüm ihtiyacı",
             PROBLEM_OPTIONS,
             index=prob_index,
             key=f"step_problem_{row_id}",
+            filter_mode=None,
             label_visibility="collapsed"
         )
     with c_sel2:
-        st.markdown('<span class="custom-field-label">2️⃣ Uygulanacak temizleme / dönüştürme işlemi</span>', unsafe_allow_html=True)
+        st.markdown('<div class="custom-field-label">2️⃣ Uygulanacak temizleme / dönüştürme işlemi</div>', unsafe_allow_html=True)
         chosen_action = st.selectbox(
             "2️⃣ Uygulanacak temizleme / dönüştürme işlemi",
             ACTION_OPTIONS,
             index=act_index,
             key=f"step_action_{row_id}",
+            filter_mode=None,
             label_visibility="collapsed"
         )
 
@@ -1607,7 +1670,7 @@ with st.container(border=True):
                     for _, row in leaderboard.iterrows()
                 ]
                 with del_col1:
-                    selected_rec = st.selectbox("Silinecek Kaydı Seçin", options_list, key="single_del_select")
+                    selected_rec = st.selectbox("Silinecek Kaydı Seçin", options_list, key="single_del_select", filter_mode=None)
                 with del_col2:
                     if st.button("❌ Seçili Kaydı Sil", type="secondary", use_container_width=True):
                         sel_idx = options_list.index(selected_rec)
