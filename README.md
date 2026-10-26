@@ -15,7 +15,7 @@ Tarayıcıda Streamlit'in verdiği yerel adres açılır (genellikle http://loca
 
 ## İçerik
 - Öğrenci ad-soyad girişi
-- 10 soruluk veri temizleme ve dönüştürme testi
+- 25 soruluk veri temizleme ve dönüştürme testi
 - Otomatik puan ve başarı yüzdesi
 - SQLite üzerinde sonuç saklama
 - Skor tablosu
