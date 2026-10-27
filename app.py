@@ -20,35 +20,20 @@ ADMIN_PIN = "i<==>Bır#bıd&ık!?"  # Sadece arka planda (sunucuda) kontrol edil
 # Seçenek seçilmediğinde varsayılan boş (0 puanlık) başlangıç seçeneği
 PLACEHOLDER_OPTION = "— Lütfen analiz edip bir seçim yapınız —"
 
-# 25 satırlık zenginleştirilmiş veri seti:
+# 10 satırlık zenginleştirilmiş veri seti (5 doğru, 5 yanlış):
 # Veri temizleme VE veri dönüştürme senaryolarını, ayrıca sadece tüm tabloya bakılarak
 # fark edilebilecek çapraz kayıt çelişkilerini (Kayıt No, Öğrenci No, Ad Soyad, Yaş, Bölüm, Not) içerir.
 DATA = [
-    {"ID": 1, "Öğrenci No": "202401", "Ad Soyad": None, "Yaş": 20, "Bölüm": "Bilişim", "Not": "85"},
+    {"ID": 1, "Öğrenci No": "202401", "Ad Soyad": "Ahmet Yılmaz", "Yaş": 20, "Bölüm": "Bilişim", "Not": "85"},
     {"ID": 2, "Öğrenci No": "202402", "Ad Soyad": "Ayşe Kaya", "Yaş": None, "Bölüm": "Bilişim", "Not": "90"},
-    {"ID": 3, "Öğrenci No": "ANONİM", "Ad Soyad": "Anonim Katılımcı", "Yaş": 21, "Bölüm": "Yazılım", "Not": None},
-    {"ID": 4, "Öğrenci No": "202404", "Ad Soyad": "Elif Yıldız", "Yaş": 19, "Bölüm": "Bilişim", "Not": "88"},
-    {"ID": 5, "Öğrenci No": "202405", "Ad Soyad": "Zeynep Çelik", "Yaş": 150, "Bölüm": "Yazılım", "Not": "95"},
-    {"ID": 6, "Öğrenci No": "202406", "Ad Soyad": "Can Şahin", "Yaş": 21, "Bölüm": " yazılım ", "Not": "78"},
-    {"ID": 7, "Öğrenci No": "202404", "Ad Soyad": "Elif Yıldız", "Yaş": 19, "Bölüm": "Bilişim", "Not": "88"},
-    {"ID": 8, "Öğrenci No": "202408", "Ad Soyad": "Mert Öztürk", "Yaş": 22, "Bölüm": "Veri Bilimi", "Not": "76"},
-    {"ID": 9, "Öğrenci No": "202409", "Ad Soyad": "Selin Aydın", "Yaş": 23, "Bölüm": None, "Not": "92"},
-    {"ID": 10, "Öğrenci No": "202410", "Ad Soyad": "Burak Özdemir", "Yaş": 21, "Bölüm": "Yazılım", "Not": "0.68 (Oran)"},
-    {"ID": 11, "Öğrenci No": "202411", "Ad Soyad": "Ece Arslan", "Yaş": 20, "Bölüm": "bilişim", "Not": "81"},
-    {"ID": 12, "Öğrenci No": "202412", "Ad Soyad": "Deniz Doğan", "Yaş": 24, "Bölüm": "Veri Bilimi", "Not": "-15"},
-    {"ID": 13, "Öğrenci No": "202413", "Ad Soyad": "Oğuz Yalçın", "Yaş": 19, "Bölüm": "Yazılım", "Not": "BA (Harf)"},
-    {"ID": 14, "Öğrenci No": "202408", "Ad Soyad": "Sude Aslan", "Yaş": 22, "Bölüm": "Yazılım", "Not": "89"},
-    {"ID": 15, "Öğrenci No": "202415", "Ad Soyad": "Kaan Çetin", "Yaş": 20, "Bölüm": "Bilişim", "Not": "73"},
-    {"ID": 16, "Öğrenci No": "ANONİM", "Ad Soyad": None, "Yaş": None, "Bölüm": None, "Not": None},
-    {"ID": 17, "Öğrenci No": "202417", "Ad Soyad": "Arda Koç", "Yaş": 21, "Bölüm": "Yazılım", "Not": "110"},
-    {"ID": 18, "Öğrenci No": "202418", "Ad Soyad": "Duru Kurt", "Yaş": 20, "Bölüm": " Bilişim", "Not": "86"},
-    {"ID": 19, "Öğrenci No": "202419", "Ad Soyad": "Eren Özkan", "Yaş": -3, "Bölüm": "Veri Bilimi", "Not": "79"},
-    {"ID": 20, "Öğrenci No": "202420", "Ad Soyad": "Naz Şimşek", "Yaş": 19, "Bölüm": "Yazılım Müh.", "Not": "91"},
-    {"ID": 21, "Öğrenci No": "202408", "Ad Soyad": "Mert Öztürk", "Yaş": 22, "Bölüm": "Veri Bilimi", "Not": "76"},
-    {"ID": 22, "Öğrenci No": "202422", "Ad Soyad": "Lara Polat", "Yaş": 20, "Bölüm": "Bilişim", "Not": "87,5"},
-    {"ID": 23, "Öğrenci No": "202423", "Ad Soyad": "Ozan Korkmaz", "Yaş": 25, "Bölüm": "yazılım", "Not": "82"},
-    {"ID": 24, "Öğrenci No": "202424", "Ad Soyad": "Mert Öztürk", "Yaş": 20, "Bölüm": "Bilişim", "Not": "93"},
-    {"ID": 25, "Öğrenci No": "202425", "Ad Soyad": "Bora Erdoğan", "Yaş": 20, "Bölüm": "Veri Bilimi", "Not": "3.40 / 4.00"},
+    {"ID": 3, "Öğrenci No": "202403", "Ad Soyad": "Can Şahin", "Yaş": 21, "Bölüm": "Yazılım", "Not": "78"},
+    {"ID": 4, "Öğrenci No": "202404", "Ad Soyad": "Zeynep Çelik", "Yaş": 150, "Bölüm": "Yazılım", "Not": "95"},
+    {"ID": 5, "Öğrenci No": "202405", "Ad Soyad": "Elif Yıldız", "Yaş": 19, "Bölüm": "Bilişim", "Not": "88"},
+    {"ID": 6, "Öğrenci No": "202406", "Ad Soyad": "Burak Özdemir", "Yaş": 21, "Bölüm": " yazılım ", "Not": "81"},
+    {"ID": 7, "Öğrenci No": "202407", "Ad Soyad": "Kaan Çetin", "Yaş": 20, "Bölüm": "Bilişim", "Not": "73"},
+    {"ID": 8, "Öğrenci No": "202405", "Ad Soyad": "Elif Yıldız", "Yaş": 19, "Bölüm": "Bilişim", "Not": "88"},
+    {"ID": 9, "Öğrenci No": "202409", "Ad Soyad": "Selin Aydın", "Yaş": 22, "Bölüm": "Veri Bilimi", "Not": "92"},
+    {"ID": 10, "Öğrenci No": "202410", "Ad Soyad": "Deniz Doğan", "Yaş": 23, "Bölüm": "Veri Bilimi", "Not": "0.68 (Oran)"},
 ]
 
 # Sorun türü seçenekleri (İlk sırada 0 puanlık seçim zorunluluğu sağlayan placeholder bulunur)
@@ -82,131 +67,57 @@ ACTION_OPTIONS = [
 ]
 
 # Doğru cevaplar: (sorun türü, yapılacak işlem, anlaşılır açıklama)
+# 10 sorudan 5'i DOĞRU (Sorun yok), 5'i YANLIŞ (Veri temizleme / dönüştürme gerektiren sorunlu kayıt)
 ISSUES = {
     1: (
-        "Eksik veri — Kaynaktan doğrulanabilir öğrenci kaydı",
-        "Eksik bilgiyi öğrenci işlerinden / resmi kaynaktan öğrenip tamamla",
-        "Öğrenci No (202401) bilindiği için Ad Soyad tahmin edilmez; öğrenci işleri sisteminden doğrulanarak tamamlanır."
+        "Sorun yok (Veri temiz ve tutarlı)",
+        "Herhangi bir değişiklik yapma (Kayıt doğru)",
+        "Kayıt #1 tüm alanlarıyla eksiksiz, kurallara uygun ve temiz bir kayıttır."
     ),
     2: (
         "Eksik veri — Kaynaktan doğrulanabilir öğrenci kaydı",
         "Eksik bilgiyi öğrenci işlerinden / resmi kaynaktan öğrenip tamamla",
-        "Ayşe Kaya'nın öğrenci numarası (202402) mevcuttur. Yaş bilgisi resmi kayıttan bakılarak tamamlanmalıdır."
+        "Ayşe Kaya'nın öğrenci numarası (202402) mevcuttur. Eksik olan Yaş bilgisi resmi kayıttan bakılarak tamamlanmalıdır."
     ),
     3: (
-        "Eksik veri — Kaynağı bilinmeyen anonim/anket kaydı",
-        "Eksik sayısal veriyi bölüm/sınıf ortalaması (Imputation) ile doldur",
-        "Kayıt 'ANONİM' olduğu için öğrenci işlerinden gerçek not öğrenilemez. İstatistiksel analizde satırı kaybetmemek için bölüm/sınıf ortalaması ile doldurulur (Imputation)."
-    ),
-    4: (
         "Sorun yok (Veri temiz ve tutarlı)",
         "Herhangi bir değişiklik yapma (Kayıt doğru)",
-        "Kayıt #4 tüm kurallara uygun ve ilk (orijinal) kayıttır. (7. satır bu kaydın kopyasıdır, ancak 4. satır korunmalıdır)."
+        "Kayıt #3'teki tüm alanlar (Öğrenci No, Ad Soyad, Yaş, Bölüm, Not) standartlara ve veri tiplerine uygundur."
     ),
-    5: (
+    4: (
         "Aykırı veya mantıksız sayısal değer (Outlier / Gürültü)",
         "Hatalı girilen uç/negatif sayısal değeri kaynak belgeyle düzelt",
-        "150 yaş değeri olanaksız bir uç değerdir (Outlier). Kaynak kayıt kontrol edilerek gerçek yaş ile düzeltilmelidir."
+        "150 yaş değeri olanaksız bir uç değerdir (Outlier). Kaynak kayıt ve kimlik belgesi kontrol edilerek gerçek yaş ile düzeltilmelidir."
+    ),
+    5: (
+        "Sorun yok (Veri temiz ve tutarlı)",
+        "Herhangi bir değişiklik yapma (Kayıt doğru)",
+        "Kayıt #5 tüm kurallara uygun ve ilk (orijinal) kayıttır. (8. satır bu kaydın mükerrer kopyasıdır, ancak 5. satır orijinal olduğu için korunmalıdır)."
     ),
     6: (
         "Yazım, büyük-küçük harf veya kenar boşluğu hatası",
         "Gereksiz boşlukları sil (strip) ve standart baş harf düzenine (title) çevir",
-        "Bölüm değerinde (' yazılım ') hem başta/sonda boşluk hem küçük harf var. strip() ve title() ile 'Yazılım' yapılmalı."
+        "Bölüm değerinde (' yazılım ') hem başında/sonunda gereksiz boşluklar hem de küçük harf kullanımı vardır. strip() ve title() ile 'Yazılım' haline getirilmelidir."
     ),
     7: (
-        "Tekrarlanan kayıt (Birebir kopya satır)",
-        "Tekrarlanan (kopya) satırı tablodan sil (Drop Duplicates)",
-        "Tablo incelendiğinde 7. satırın Öğrenci No (202404) ve tüm bilgileriyle 4. satırın birebir kopyası olduğu görülür; kopya silinmelidir."
-    ),
-    8: (
-        "Sorun yok (Veri temiz ve tutarlı)",
-        "Herhangi bir değişiklik yapma (Kayıt doğru)",
-        "Mert Öztürk'ün (202408) ilk ve doğru kaydıdır. Tablodaki 21. satır bunun kopyasıdır ama 8. satır orijinal olduğu için dokunulmaz."
-    ),
-    9: (
-        "Eksik veri — Kaynaktan doğrulanabilir öğrenci kaydı",
-        "Eksik bilgiyi öğrenci işlerinden / resmi kaynaktan öğrenip tamamla",
-        "Selin Aydın'ın Öğrenci No (202409) bilgisi mevcuttur; eksik olan Bölüm alanı resmi kayıttan tamamlanmalıdır."
-    ),
-    10: (
-        "Ölçek / Birim farklılığı (0-1 oranı veya 4'lük sistem notu)",
-        "Min-Max / Ölçek dönüştürme ile değeri 0–100 puan sistemine normalize et",
-        "Not '0.68 (Oran)' şeklinde 0–1 ölçeğinde kaydedilmiş. Veri dönüştürme (ölçekleme) ile 100'lük sisteme (68) dönüştürülmelidir."
-    ),
-    11: (
-        "Yazım, büyük-küçük harf veya kenar boşluğu hatası",
-        "Gereksiz boşlukları sil (strip) ve standart baş harf düzenine (title) çevir",
-        "'bilişim' küçük harfle yazıldığı için gruplamalarda ayrı bir kategori gibi görünür. 'Bilişim' olarak standartlaştırılmalıdır."
-    ),
-    12: (
-        "Aykırı veya mantıksız sayısal değer (Outlier / Gürültü)",
-        "Hatalı girilen uç/negatif sayısal değeri kaynak belgeyle düzelt",
-        "-15 sınav notu olamaz (0–100 aralığı dışı). Muhtemelen 15 yazılırken tire eklendi; kaynak sınav kağıdından doğrulanıp düzeltilmeli."
-    ),
-    13: (
-        "Veri tipi veya kategori kodlama uyumsuzluğu (Harf notu / Virgüllü metin / Kısaltma)",
-        "Tip dönüştürme (Type Casting) veya Kategori Eşleme (Mapping) ile standartlaştır",
-        "Sınav notu sayısal yerine 'BA (Harf)' olarak girilmiş. Kategori eşleme (Mapping) tablosuyla sayısal karşılığına dönüştürülmelidir."
-    ),
-    14: (
-        "Anahtar / Kimlik çakışması (Aynı Öğrenci No farklı kişide)",
-        "Öğrenci numarasını kaynak sistemden kontrol edip benzersiz (unique) hale getir",
-        "DİKKAT: Sadece veri tablosunu inceleyenler 202408 numarasının 8. satırda Mert Öztürk'e ait olduğunu fark edebilir! Sude Aslan'a yanlışlıkla aynı Öğrenci No verilmiştir."
-    ),
-    15: (
         "Sorun yok (Veri temiz ve tutarlı)",
         "Herhangi bir değişiklik yapma (Kayıt doğru)",
         "Kaan Çetin kaydının tüm alanları kurallara, veri tiplerine ve tekillik (unique) kısıtlarına uygundur."
     ),
-    16: (
-        "Tamamen boş / kurtarılamaz gürültülü kayıt",
-        "Kaydı tamamen veri setinden çıkar (Drop Row)",
-        "Öğrenci anonim ve Ad, Yaş, Bölüm, Not alanlarının tamamı boş (NaN). Hiçbir bilgi taşımadığı için satır veri setinden silinmelidir (Drop Row)."
-    ),
-    17: (
-        "Aykırı veya mantıksız sayısal değer (Outlier / Gürültü)",
-        "Hatalı girilen uç/negatif sayısal değeri kaynak belgeyle düzelt",
-        "110 notu 0–100 ölçeğinin üst sınırını aşmaktadır. Kaynak sınav listesinden kontrol edilerek düzeltilmelidir."
-    ),
-    18: (
-        "Yazım, büyük-küçük harf veya kenar boşluğu hatası",
-        "Gereksiz boşlukları sil (strip) ve standart baş harf düzenine (title) çevir",
-        "Bölüm adının başında görünmez boşluk (' Bilişim') var. Boşluk temizlenmezse filtreleme ve gruplama hatalı çalışır."
-    ),
-    19: (
-        "Aykırı veya mantıksız sayısal değer (Outlier / Gürültü)",
-        "Hatalı girilen uç/negatif sayısal değeri kaynak belgeyle düzelt",
-        "-3 yaş değeri mantıksızdır. Kaynak belgeden kontrol edilerek doğru pozitif tam sayı değeriyle güncellenmelidir."
-    ),
-    20: (
-        "Veri tipi veya kategori kodlama uyumsuzluğu (Harf notu / Virgüllü metin / Kısaltma)",
-        "Tip dönüştürme (Type Casting) veya Kategori Eşleme (Mapping) ile standartlaştır",
-        "Tablodaki standart bölüm adı 'Yazılım' iken burada 'Yazılım Müh.' kısaltması kullanılmış. Kategori eşleme ile 'Yazılım' değerine dönüştürülmelidir."
-    ),
-    21: (
+    8: (
         "Tekrarlanan kayıt (Birebir kopya satır)",
         "Tekrarlanan (kopya) satırı tablodan sil (Drop Duplicates)",
-        "8. satırdaki Mert Öztürk (202408) kaydının birebir kopyasıdır. Mükerrer satır veri setinden kaldırılmalıdır."
+        "Tablo incelendiğinde 8. satırın Öğrenci No (202405) ve tüm bilgileriyle 5. satırın birebir kopyası olduğu görülür; kopya satır silinmelidir (Drop Duplicates)."
     ),
-    22: (
-        "Veri tipi veya kategori kodlama uyumsuzluğu (Harf notu / Virgüllü metin / Kısaltma)",
-        "Tip dönüştürme (Type Casting) veya Kategori Eşleme (Mapping) ile standartlaştır",
-        "Not '87,5' şeklinde virgüllü metin (string) olarak girilmiş. Noktalı sayıya çevrilip tip dönüşümü (float/int type casting) yapılmalıdır."
-    ),
-    23: (
-        "Yazım, büyük-küçük harf veya kenar boşluğu hatası",
-        "Gereksiz boşlukları sil (strip) ve standart baş harf düzenine (title) çevir",
-        "Bölüm adı 'yazılım' şeklinde küçük harfle başlamış. Standart 'Yazılım' formatına dönüştürülmelidir."
-    ),
-    24: (
+    9: (
         "Sorun yok (Veri temiz ve tutarlı)",
         "Herhangi bir değişiklik yapma (Kayıt doğru)",
-        "ŞAŞIRTMACA: İsim 'Mert Öztürk' olsa da Öğrenci No (202424), Yaş (20) ve Bölüm (Bilişim) tamamen farklıdır! Gerçek hayatta aynı isimli iki farklı öğrenci olabilir; numara benzersiz olduğu için kayıt temizdir."
+        "Selin Aydın kaydı eksiksiz, veri tipleri doğru ve tekillik kurallarına uygun temiz bir kayıttır."
     ),
-    25: (
+    10: (
         "Ölçek / Birim farklılığı (0-1 oranı veya 4'lük sistem notu)",
         "Min-Max / Ölçek dönüştürme ile değeri 0–100 puan sistemine normalize et",
-        "Not '3.40 / 4.00' olarak 4'lük katsayı sisteminde girilmiş. Diğer kayıtlarla aynı analizde kullanılabilmesi için 100'lük ölçeğe dönüştürülmelidir."
+        "Not '0.68 (Oran)' şeklinde 0–1 ölçeğinde kaydedilmiştir. Veri dönüştürme (ölçekleme/normalizasyon) ile 100'lük sisteme (68) dönüştürülmelidir."
     ),
 }
 
@@ -389,7 +300,7 @@ def finalize_quiz(player_name: str):
 
         prob_ok = u_prob == exp_prob
         act_ok = u_act == exp_act
-        score += (2 if prob_ok else 0) + (2 if act_ok else 0)
+        score += (5 if prob_ok else 0) + (5 if act_ok else 0)
 
         prob_label = "Boş bırakıldı" if u_prob == PLACEHOLDER_OPTION else u_prob
         act_label = "Boş bırakıldı" if u_act == PLACEHOLDER_OPTION else u_act
@@ -409,7 +320,7 @@ def finalize_quiz(player_name: str):
             "Detaylı Açıklama": explanation
         })
 
-    max_score = total_cards * 4
+    max_score = total_cards * 10
     percent = round(score / max_score * 100, 1)
 
     st.session_state["last_result"] = {
@@ -1270,7 +1181,7 @@ with st.container(border=True):
 
 # 2. Büyük veri tablosu (Ana ekranda ortada durur, "Seti İncele" dendiğinde buraya dönülür)
 with st.container(border=True):
-    st.subheader("📋 2. Öğrenci Veri Tablosu — 25 Kayıt")
+    st.subheader("📋 2. Öğrenci Veri Tablosu — 10 Kayıt")
 
     # Eğer oyuncu "Seti İncele" butonuna basarak pop-up'ı geçici olarak kapattıysa bilgilendirme ve geri dönüş butonu göster
     if st.session_state["quiz_started"] and st.session_state["inspect_dataset"]:
